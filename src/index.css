@@ -1,11 +1,10 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,21 +12,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+/* global smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
-a:hover {
-  color: #535bf2;
-}
+
 
 body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  color: #1C1C1C;
 }
 
 h1 {
@@ -46,23 +41,27 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+.my-xaxis-label {
+  font-size: 0.625rem !important;
+  font-weight: 600 !important;
+  color: #9f9f9f !important;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.nav-link {
+  color: #a6a6a6;
+  font-weight: 500;
+  text-decoration: none;
+  transition:  0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #2c92d5;
+  text-decoration: wavy underline;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #1C1C1C;
     background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
   }
 }
