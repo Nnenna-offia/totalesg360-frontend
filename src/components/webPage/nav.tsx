@@ -37,53 +37,64 @@ export default function Nav() {
       zIndex={50}
       // boxShadow="sm"
     >
-      {/* Logo */}
-      <Link to="/">
-        <Image src={Tag} alt="ESG360 Logo" maxW="12rem" />
-      </Link>
-
-      {/* Desktop Links */}
       <Flex
-        gap="2.5rem"
-        display={{ base: "none", md: "flex" }}
+        // bg={"red"}
+        w="100%"
+        justifyContent="space-between"
         alignItems="center"
       >
-        {links.map((link) => (
-          <a
-            key={link.label}
-            href={link.path}
-            className="nav-link"
-            style={{ color: "#A6A6A6", fontWeight: 500 }}
-          >
-            {link.label}
-          </a>
-        ))}
-      </Flex>
-
-      {/* Desktop Actions */}
-      <Flex
-        gap="1.25rem"
-        alignItems="center"
-        display={{ base: "none", md: "flex" }}
-      >
-        <Link
-          to="/login"
-          className="nav-link"
-          style={{ color: "#A6A6A6", fontWeight: 500 }}
-        >
-          Login
+        {" "}
+        {/* Logo */}
+        <Link to="/">
+          <Image src={Tag} alt="ESG360 Logo" maxW="12rem" />
         </Link>
-        <Button
-          bg="#2C92D5"
-          color="white"
-          borderRadius="4px"
-          px="1.5rem"
-          py="0.5rem"
-          fontWeight="500"
-          _hover={{ bg: "#1f76b8" }}
+        {/* Desktop Links */}
+        <Flex
+          gap="2.5rem"
+          display={{ base: "none", md: "flex" }}
+          alignItems="center"
         >
-          Sign Up
-        </Button>
+          {links.map((link, index) => (
+            <a
+              key={link.label}
+              href={link.path}
+              className="nav-link"
+              style={{
+                color: index === 0 ? "#191A15" : "#A6A6A6",
+                fontWeight: 600,
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </Flex>
+        {/* Desktop Actions */}
+        <Flex
+          gap="1.25rem"
+          alignItems="center"
+          // bg={"red"}
+          justifySelf={"flex-end"}
+          display={{ base: "none", md: "flex" }}
+        >
+          <Link
+            to="/login"
+            className="nav-link"
+            style={{ color: "#A6A6A6", fontWeight: 600 }}
+          >
+            Login
+          </Link>
+          <Button
+            bg="#2C92D5"
+            color="white"
+            borderRadius="4px"
+            px="1.5rem"
+            py="0.5rem"
+            fontWeight="600"
+            _hover={{ bg: "#1f76b8" }}
+          >
+            Sign Up
+          </Button>
+        </Flex>
       </Flex>
 
       {/* Mobile Hamburger */}
@@ -101,14 +112,13 @@ export default function Nav() {
         {isOpen && (
           <VStack
             position={"absolute"}
-            top={'.5rem'}
+            top={".5rem"}
             // right={0}
-                      right={["-.5rem", "-1.5rem", "7.8125rem"]}
-
+            right={["-.5rem", "-1.5rem", "7.8125rem"]}
             gap="1.5rem"
-            bg={'white'}
-            px={'3rem'}
-            py={'2rem'}
+            bg={"white"}
+            px={"3rem"}
+            py={"2rem"}
             boxShadow="md"
             borderRadius="8px"
             mt="1rem"
@@ -140,6 +150,7 @@ export default function Nav() {
           </VStack>
         )}
       </Flex>
+      {/* Mobile Hamburger */}
     </Flex>
   );
 }

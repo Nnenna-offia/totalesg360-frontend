@@ -81,6 +81,7 @@ export default function LandingPage() {
         <Nav />
         <Grid
           pt={"4rem"}
+          pb={'2rem'}
           px={["1.5rem", "3rem", "7.8125rem"]}
           alignItems={"center"}
           gridTemplateColumns={["1fr", "1fr", "1fr 2fr"]} // mobile → tablet → desktop
@@ -160,6 +161,7 @@ export default function LandingPage() {
         justifyContent={"space-around"}
         py={"2.40625rem"}
         alignItems={"center"}
+        // bg={'red'}
         gap={"7.3125rem"}
         flexDirection={["column", "column", "row"]}
       >
