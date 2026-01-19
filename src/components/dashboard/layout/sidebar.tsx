@@ -1,5 +1,5 @@
 import { Box, Flex, Icon, Image, Stack, Text } from "@chakra-ui/react";
-import Logo from "../../../assets/esglogo_and_tagline.png";
+import Logo from "../../../assets/TotalESG 360.png";
 // import { ReactComponent as EnvironmentalIcon } from "../../../assets/sidebar/environmental.svg";
 import EnvironmentalIcon from "../../../assets/sidebar/environmental.svg?react";
 import EnvironmentalActive from "../../../assets/sidebar/environmental-active.svg?react";
@@ -30,25 +30,25 @@ export default function Sidebar() {
     },
     {
       label: "environmental",
-      path: "/environmental",
+      path: "/dashboard/environmental",
       icon: EnvironmentalIcon,
       activeIcon: EnvironmentalActive,
     },
     {
       label: "social",
-      path: "/social",
+      path: "/dashboard/social",
       icon: SocialIcon,
       activeIcon: SocialActive,
     },
     {
       label: "governance",
-      path: "/governance",
+      path: "/dashboard/governance",
       icon: GovernanceIcon,
       activeIcon: GovernanceActive,
     },
     {
       label: "data",
-      path: "/data",
+      path: "/dashboard/data",
       icon: DataIcon,
       activeIcon: DataActive,
     },
@@ -69,7 +69,11 @@ export default function Sidebar() {
 
       <Stack gap={4} py={"1.4375rem"} borderBlockEnd={".6px solid #E0E0E0"}>
         {sidebarItems.map((item) => {
-          const isActive = location.pathname === item.path;
+          // const isActive = location.pathname === item.path;
+          const isActive =
+            item.path === "/dashboard"
+              ? location.pathname === "/dashboard"
+              : location.pathname.startsWith(item.path);
           const IconComponent = isActive ? item.activeIcon : item.icon;
 
           return (
