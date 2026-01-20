@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  frontend:
+    image: totalesg360-frontend:${ENVIRONMENT}
+    container_name: totalesg360-frontend-${ENVIRONMENT}
+    restart: unless-stopped
+    networks:
+      - totalesg360-network
+
+networks:
+  totalesg360-network:
+    driver: bridge

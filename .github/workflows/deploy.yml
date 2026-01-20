@@ -1,0 +1,84 @@
+name: Deploy to VPS
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy'
+        required: true
+        type: string
+        default: 'main'
+      environment:
+        description: 'Deployment environment (dev or prod)'
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      #=================================================================================
+      # STEP 1: CHECKOUT USER-SELECTED BRANCH
+      #=================================================================================
+      - name: 📥 Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch }}
+          fetch-depth: 0
+       #================================================================================
+      # STEP 2: SETUP SSH
+      #=================================================================================
+      - name: 🎯 Set deployment config
+        run: |
+          ENV="${{ github.event.inputs.environment }}"
+          echo "ENVIRONMENT=$ENV" >> $GITHUB_ENV
+
+          if [ "$ENV" = "prod" ]; then
+            echo "DEPLOY_PATH=/var/www/total360-frontend" >> $GITHUB_ENV
+            echo "PORT=3000" >> $GITHUB_ENV
+            echo "APP_NAME=total360-frontend" >> $GITHUB_ENV
+          else
+            echo "DEPLOY_PATH=/var/www/total360-frontend-dev" >> $GITHUB_ENV
+            echo "PORT=3001" >> $GITHUB_ENV
+            echo "APP_NAME=total360-frontend-dev" >> $GITHUB_ENV
+          fi
+      #=================================================================================
+      # STEP 3: SETUP SSH
+      #=================================================================================
+
+      - name: ⚙️ Set deployment configuration
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+          ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+      #=================================================================================
+      # STEP 4: SYNC CODE TO SERVER
+      #=================================================================================
+      - name: 📤 Sync source code
+        run: |
+          rsync -az --delete \
+            --exclude ".git" \
+            --exclude ".github" \
+            --exclude "node_modules" \
+            ./ root@${{ secrets.SERVER_IP }}:${{ env.DEPLOY_PATH }}
+      #=================================================================================
+      # STEP 5: DEPLOY APPLICATION
+      #=================================================================================
+      - name: 🚀 Deploy application
+        run: |
+          ssh root@${{ secrets.SERVER_IP }} << 'EOF'
+            cd ${{env.DEPLOY_PATH}}
+            export ENVIRONMENT=${{ env.ENVIRONMENT }}
+            docker-compose \
+              -f docker-compose.yml \
+              -f docker-compose.${{ env.ENVIRONMENT }}.yml \
+              up -d --build
+          EOF
