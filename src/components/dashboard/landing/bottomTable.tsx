@@ -1,5 +1,5 @@
 import { createColumnHelper } from "@tanstack/react-table";
-import { Box, Text } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 import { type ColumnDef } from "@tanstack/react-table";
 const columnHelper = createColumnHelper<any>();
 

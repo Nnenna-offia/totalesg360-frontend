@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Icon, Image, Input, Text } from "@chakra-ui/react";
 import Tag from "../../assets/ESG360 color.png";
-import { BiRightArrow } from "react-icons/bi";
+// import { BiRightArrow } from "react-icons/bi";
 // import { Icon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ArrowBigRight } from "lucide-react";

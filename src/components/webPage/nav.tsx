@@ -6,12 +6,12 @@ import {
   VStack,
   Link as ChakraLink,
   Icon,
-  CloseButton,
+  //CloseButton,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Tag from "../../assets/ESG360 color.png";
-import { Hamburger, HamburgerIcon, MenuIcon } from "lucide-react";
-import { menuAnatomy } from "@chakra-ui/react/anatomy";
+import { MenuIcon } from "lucide-react";
+// import { menuAnatomy } from "@chakra-ui/react/anatomy";
 import { IoClose } from "react-icons/io5";
 
 export default function Nav() {

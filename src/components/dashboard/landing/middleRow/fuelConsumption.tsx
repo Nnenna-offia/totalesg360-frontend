@@ -1,4 +1,4 @@
-import { Box, Flex, Icon, Text } from "@chakra-ui/react";
+import { Flex, Icon, Text } from "@chakra-ui/react";
 import BluePump from "../../../../assets/dashboard/pump-blue.svg?react";
 import GrayPump from "../../../../assets/dashboard/pump-gray.svg?react";
 import LightPump from "../../../../assets/dashboard/pump-light.svg?react";
