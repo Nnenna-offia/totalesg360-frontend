@@ -77,7 +77,7 @@ jobs:
           ssh root@${{ secrets.SERVER_IP }} << 'EOF'
             cd ${{env.DEPLOY_PATH}}
             export ENVIRONMENT=${{ env.ENVIRONMENT }}
-            docker-compose \
+            docker compose \
               -f docker-compose.yml \
               -f docker-compose.${{ env.ENVIRONMENT }}.yml \
               up -d --build
