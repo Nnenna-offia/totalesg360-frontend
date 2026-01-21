@@ -1,10 +1,11 @@
 import {
   Box,
   type BoxProps,
-  Circle,
+  // Circle,
   Flex,
   type FlexProps,
   Stack,
+  type StackProps,
   Text,
 } from '@chakra-ui/react';
 import React, { type ReactNode } from 'react';
@@ -27,32 +28,32 @@ interface CustomChartsProps {
   };
   outerBarProps?: BoxProps;
   innerBarProps?: BoxProps;
-  stackProps?: BoxProps;
+  stackProps?: StackProps;
   flexProps?: FlexProps;
   onBarClick?: (data: any) => void;
   clickedBar?: any;
 }
 export default function SingleBarChart({
-  peakValue = 10000,
+  // peakValue = 10000,
   data,
   setHoveredBar,
   // HoveredComponent,
-  hoveredBar,
+  // hoveredBar,
   outerBarProps,
-  innerBarProps,
+  // innerBarProps,
   stackProps,
   flexProps,
   onBarClick,
-  clickedBar,
+  // clickedBar,
 }: CustomChartsProps) {
   // const [hoveredBar, setHoveredBar] = useState<{
   //   key: string;
   //   value: any;
   //   breakDown: any;
   // } | null>(null);
-  const maxValue = Math.max(
-    ...Object.values(data).map((item) => Number(item.value))
-  );
+  // const maxValue = Math.max(
+  //   ...Object.values(data).map((item) => Number(item.value))
+  // );
 
   // console.log('singlechartdata is ', data);
 
@@ -67,8 +68,6 @@ export default function SingleBarChart({
         {...flexProps}
       >
         {data?.map((item, index) => {
-          const peakValueBar = maxValue + peakValue;
-
           // console.log('item', item);
           // // eslint-disable-next-line no-console
 

@@ -6,7 +6,7 @@ import {
   VStack,
   Link as ChakraLink,
   Icon,
-  // CloseButton,
+  // //CloseButton,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Tag from "../../assets/TotalESG 360.png";
