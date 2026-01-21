@@ -134,7 +134,7 @@ export default function Nav() {
                 {link.label}
               </ChakraLink>
             ))}
-            <Link to="/login" onClick={() => setIsOpen(false)}>
+            <Link to="/" onClick={() => setIsOpen(false)}>
               <Button bg={"transparent"} className="nav-link" w="full">
                 Login
               </Button>
