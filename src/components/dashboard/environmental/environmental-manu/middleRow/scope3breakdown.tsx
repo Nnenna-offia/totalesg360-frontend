@@ -23,7 +23,7 @@ const Scope3 = () => {
             <Text fontSize={"1rem"} fontWeight={"900"}>
               {item.label}{" "}
             </Text>
-            <Text fontSize={"1rem"} fontWeight={"600"}>
+            <Text fontSize={"1rem"} fontWeight={"500"}>
               {item.value}{" "}
             </Text>
           </Stack>

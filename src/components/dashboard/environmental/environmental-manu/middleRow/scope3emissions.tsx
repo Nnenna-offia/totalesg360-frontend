@@ -6,7 +6,7 @@ const Scope3Emissions = () => {
       <Text fontSize={"1rem"} fontWeight={"500"} color={"#606060"}>
         Scope 3 Emissions{" "}
       </Text>
-      <Text fontSize={"1rem"} fontWeight={"600"} color={"#606060"}>
+      <Text fontSize={"1rem"} fontWeight={"500"} color={"#606060"}>
         (Estimated - Value Chain)
       </Text>
 
@@ -14,10 +14,10 @@ const Scope3Emissions = () => {
         <Text fontSize={"1.25rem"} fontWeight={"900"}>
           1,250 tCO₂e{" "}
         </Text>
-        <Text fontSize={"1rem"} fontWeight={"600"}>
+        <Text fontSize={"1rem"} fontWeight={500}>
           Coverage: 45% of value chain{" "}
         </Text>
-        <Text fontSize={"1rem"} fontWeight={"600"}>
+        <Text fontSize={"1rem"} fontWeight={"500"}>
           Data Quality: Medium confidence{" "}
         </Text>
       </Stack>

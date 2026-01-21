@@ -18,7 +18,7 @@ export default function Nav() {
   const links = [
     { label: "Home", path: "/" },
     { label: "Product", path: "#product" },
-    { label: "Contact Us", path: "/contact" },
+    { label: "Contact Us", path: "#contact" },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +51,7 @@ export default function Nav() {
         {/* Desktop Links */}
         <Flex
           gap="2.5rem"
-          display={{ base: "none", md: "flex" }}
+          display={{ base: "none", lg: "flex" }}
           alignItems="center"
         >
           {links.map((link, index) => (
@@ -74,10 +74,10 @@ export default function Nav() {
           alignItems="center"
           // bg={"red"}
           justifySelf={"flex-end"}
-          display={{ base: "none", md: "flex" }}
+          display={{ base: "none", lg: "flex" }}
         >
           <Link
-            to="/login"
+            to="/"
             className="nav-link"
             style={{ color: "#A6A6A6", fontWeight: 600 }}
           >
@@ -102,7 +102,7 @@ export default function Nav() {
         <Icon
           aria-label="Open menu"
           as={isOpen ? IoClose : MenuIcon}
-          display={{ base: "flex", md: "none" }}
+          display={{ base: "flex", lg: "none" }}
           onClick={() => setIsOpen(!isOpen)}
           cursor="pointer"
           // variant="ghost"
@@ -122,7 +122,7 @@ export default function Nav() {
             boxShadow="md"
             borderRadius="8px"
             mt="1rem"
-            display={["flex", "flex", "none"]}
+            display={{ base: "flex", lg: "none" }}
           >
             {links.map((link) => (
               <ChakraLink

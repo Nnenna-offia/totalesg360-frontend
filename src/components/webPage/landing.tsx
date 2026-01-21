@@ -25,10 +25,10 @@ export default function LandingPage() {
     const stars = Array.from({ length: maxRating }, (_, i) => {
       const starNumber = i + 1;
       if (rating >= starNumber)
-        return <Icon as={FaStar} key={i} color="#FFD700" />;
+        return <Icon as={FaStar} key={i} color='#FFD700' />;
       if (rating >= starNumber - 0.5)
-        return <Icon as={FaStarHalfAlt} key={i} color="#FFD700" />;
-      return <Icon as={FaRegStar} key={i} color="#FFD700" />;
+        return <Icon as={FaStarHalfAlt} key={i} color='#FFD700' />;
+      return <Icon as={FaRegStar} key={i} color='#FFD700' />;
     });
     return <Flex>{stars}</Flex>;
   }
@@ -76,15 +76,18 @@ export default function LandingPage() {
   ];
 
   return (
-    <Box w={"100dvw"}>
-      <Box bg="radial-gradient(circle, #ffffffff 0%, #b6e1fdff 70%)">
+    <Box w={"100dvw"} bg='white'>
+      <Box bg='radial-gradient(circle, #ffffffff 0%, #b6e1fdff 70%)'>
         <Nav />
         <Grid
           pt={"4rem"}
-          pb={'2rem'}
+          pb={"2rem"}
           px={["1.5rem", "3rem", "7.8125rem"]}
           alignItems={"center"}
-          gridTemplateColumns={["1fr", "1fr", "1fr 2fr"]} // mobile → tablet → desktop
+          gridTemplateColumns={{
+            base: "1fr",
+            lg: "1fr 1fr",
+          }}
           gridTemplateRows={["repeat(2, auto)", null, "auto"]}
         >
           <Flex flexDirection={"column"} gap={"2.6875rem"}>
@@ -101,18 +104,18 @@ export default function LandingPage() {
               >
                 Reporting Made Simple, Compliant & Actionable
               </Text>
-              <Box w="full">
+              <Box w='full'>
                 <svg
-                  viewBox="0 0 100 10"
-                  preserveAspectRatio="none"
-                  width="100%"
-                  height="30"
+                  viewBox='0 0 100 10'
+                  preserveAspectRatio='none'
+                  width='100%'
+                  height='30'
                 >
                   <path
-                    d="M0 10 Q50 0 100 10"
-                    stroke="#2C92D5"
-                    strokeWidth="2"
-                    fill="none"
+                    d='M0 10 Q50 0 100 10'
+                    stroke='#2C92D5'
+                    strokeWidth='2'
+                    fill='none'
                   />
                 </svg>
               </Box>
@@ -150,7 +153,7 @@ export default function LandingPage() {
               alignSelf={"center"}
               justifySelf={"end"}
               src={HeroImage}
-              alt="Hero Image"
+              alt='Hero Image'
             />
           </Box>{" "}
         </Grid>
@@ -163,9 +166,9 @@ export default function LandingPage() {
         alignItems={"center"}
         // bg={'red'}
         gap={"7.3125rem"}
-        flexDirection={["column", "column", "row"]}
+        flexDirection={{ base: "column", lg: "row" }}
       >
-        <Image src={BoardRoom} alt="Boardroom Image" />
+        <Image src={BoardRoom} alt='Boardroom Image' />
         <Flex flexDirection={"column"}>
           <Text fontSize={"3.125rem"} color={"#191a15"} fontWeight={600}>
             ESG is now mandatory
@@ -203,7 +206,7 @@ export default function LandingPage() {
             </ul>{" "}
             <Text> ESG 360 fixes this.</Text>
           </Flex>
-          <Flex gap={"5rem"} mt={"4rem"} w={'fit-content'} mx={'auto'}>
+          <Flex gap={"5rem"} mt={"4rem"} w={"fit-content"} mx={"auto"}>
             {ratings.map((item) => (
               <Flex key={item.company} flexDirection={"column"}>
                 <StarRating rating={item.rating} />
@@ -221,7 +224,7 @@ export default function LandingPage() {
       </Flex>
 
       <Box
-        id="product"
+        id='product'
         // bg={'red'}
         px={["1.5rem", "3rem", "7.8125rem"]}
       >
@@ -232,8 +235,8 @@ export default function LandingPage() {
           ESG 360 helps organisations:
         </Text>
         <Grid
-          gridTemplateColumns={["1fr", null, "repeat(4, 1fr)"]} // mobile → tablet → desktop
-          gap={["3.125rem", null, null]}
+          gridTemplateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }} // mobile → tablet → desktop
+          gap={{ base: "3.125rem", lg: 0 }}
           py={"2.0625rem"}
         >
           {features.map((feature) => (
@@ -270,14 +273,14 @@ export default function LandingPage() {
         </Text>
         <Flex
           justifyContent={"space-between"}
-          flexDirection={["column", "column", "row"]}
-          gap={["3.125rem", null, null]}
+          flexDirection={{ base: "column", lg: "row" }}
+          gap={{ base: "3.125rem", lg: 0 }}
           // bg={"red"}
         >
           {sectors.map((sector) => (
             <Flex
               key={sector.label}
-              maxW={["100%", null, "25%"]}
+              maxW={{ base: "100%", lg: "25%" }}
               //   bg={"red"}
               position={"relative"}
             >
@@ -291,8 +294,8 @@ export default function LandingPage() {
               />
               <Box
                 position={"absolute"}
-                top="0"
-                p="1.5rem"
+                top='0'
+                p='1.5rem'
                 left={0}
                 right={0}
                 h={"full"}
@@ -326,8 +329,12 @@ export default function LandingPage() {
         </Flex>
       </Box>
 
-      <Box py={"10rem"} px={["1.5rem", "3rem", "7.5625rem"]}>
-        <Flex gap={["3.5rem", null, "1rem"]} flexDirection={["column", "column", "row"]} justifyContent={"space-between"}>
+      <Box py={["3rem", "5rem", "7rem"]} px={["1.5rem", "3rem", "7.5625rem"]}>
+        <Flex
+          gap={{ base: "3.5rem", lg: "1rem" }}
+          flexDirection={{ base: "column", lg: "row" }}
+          justifyContent={"space-between"}
+        >
           <Box>
             <Text fontWeight={700} fontSize={"3rem"}>
               Key Features
@@ -338,12 +345,12 @@ export default function LandingPage() {
             <Flex flexDirection={"column"} gap={"1rem"} mt={"2rem"}>
               {keyFeatures.map((feature) => (
                 <Flex key={feature} gap={"1rem"} alignItems={"center"}>
-                  <Box p={".5rem"} bg="#2C92D5" borderRadius={"full"}>
+                  <Box p={".5rem"} bg='#2C92D5' borderRadius={"full"}>
                     {" "}
                     <Icon as={Check} color={"white"} />
                   </Box>
                   <Text
-                    key={feature}
+                    // key={feature}
                     fontSize={"1.125rem"}
                     fontWeight={500}
                     //   color={"#606060"}
@@ -355,7 +362,7 @@ export default function LandingPage() {
             </Flex>
           </Box>
           <Box>
-            <Image src={Laptop} w={["full", "full", null]} alt="Laptop Image" />
+            <Image src={Laptop} w={["full", "full", null]} alt='Laptop Image' />
           </Box>
         </Flex>
 

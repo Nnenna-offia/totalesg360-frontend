@@ -1,16 +1,12 @@
 import { Box, Grid, Stack, Text } from "@chakra-ui/react";
-import ElectricalConsumption from "./scope1emissions";
 import Scope2Emissions from "./emissions";
-import FuelConsumption from "./AIinsights";
-import EmployeeCards from "./scope3emissions";
-import CapacityBuilding from "./scope3breakdown";
-import HSEIncidents from "./Incidents";
 import MonthlyCompliance from "./monthlyCompliance";
 import Scope1Emissions from "./scope1emissions";
 import AIInsights from "./AIinsights";
 import AIInsightsEmissions from "./AIinsights-emission";
 import Scope3 from "./scope3breakdown";
 import Scope3Emissions from "./scope3emissions";
+import EnergyConsumption from "./energyConsumption";
 
 export default function EnvironmentalMiddleRow() {
   return (
@@ -35,9 +31,16 @@ export default function EnvironmentalMiddleRow() {
           <AIInsights />
         </Box>
 
-        <Box>
-          <Scope3Emissions />
-          <Scope3 />
+        <Box
+          display={"flex"}
+          // bg={"red"}
+          justifyContent={"space-between"}
+          flexDirection={"column"}
+        >
+          <Box>
+            <Scope3Emissions />
+            <Scope3 />{" "}
+          </Box>{" "}
           <AIInsightsEmissions />
         </Box>
 
@@ -48,8 +51,9 @@ export default function EnvironmentalMiddleRow() {
             fontWeight={"700"}
             color={"#606060"}
           >
-            Social Summary{" "}
+            Energy Consumption{" "}
           </Text>
+          <EnergyConsumption/>
           <MonthlyCompliance />
         </Box>
       </Grid>
