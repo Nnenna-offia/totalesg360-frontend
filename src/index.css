@@ -61,6 +61,56 @@ button {
   text-decoration: wavy underline;
 }
 
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* hide native checkbox but keep it accessible */
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* custom box */
+.checkmark {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #2C92D5;
+  border-radius: 4px;
+  background: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+/* check icon */
+.checkmark::after {
+  content: "";
+  width: 4px;
+  height: 8px;
+  border: solid #2C92D5;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+/* checked state */
+.checkbox input:checked + .checkmark::after {
+  opacity: 1;
+}
+
+/* focus (keyboard) */
+.checkbox input:focus-visible + .checkmark {
+  box-shadow: 0 0 0 3px rgba(44, 146, 213, 0.35);
+}
+
+
 /* @media (prefers-color-scheme: light) {
   :root {
     color: #1C1C1C;
