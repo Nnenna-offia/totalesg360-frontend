@@ -2,12 +2,12 @@ import ReactApexChart from "react-apexcharts";
 import { type ApexOptions } from "apexcharts";
 import { Flex, Text } from "@chakra-ui/react";
 
-const Scope1Emissions = () => {
+const WasteConsumption = () => {
   const data = [10, 11, 17, 9, 11, 12];
   const maxValue = Math.max(...data);
   const maxIndex = data.indexOf(maxValue);
 
-  const BAR_OFFSET = 5;
+  // const BAR_OFFSET = 5;
 
   const series: ApexOptions["series"] = [
     {
@@ -15,11 +15,11 @@ const Scope1Emissions = () => {
       type: "line",
       data,
     },
-    {
-      name: "Highest",
-      type: "column",
-      data: data.map((v, i) => (i === maxIndex ? v + BAR_OFFSET : null)),
-    },
+    // {
+    //   name: "Highest",
+    //   type: "column",
+    //   data: data.map((v, i) => (i === maxIndex ? v + BAR_OFFSET : null)),
+    // },
   ];
 
   const options: ApexOptions = {
@@ -40,7 +40,7 @@ const Scope1Emissions = () => {
       width: [1, 0], // line visible, bar has no stroke
     },
 
-    colors: ["#2C92D5", "#e1f0fdff"], // line, bar
+    colors: ["#2C92D5"], // line, bar
 
     plotOptions: {
       bar: {
@@ -101,13 +101,13 @@ const Scope1Emissions = () => {
   return (
     <Flex flexDirection={"column"} alignItems={"flex-start"}>
       <Text fontSize={"1rem"} fontWeight={"500"} color={"#606060"}>
-        Scope 1 Emissions (fuel, generators){" "}
+        Water Consumption Card{" "}
       </Text>
-      <div style={{width: "100%"}} id="emissions-chart">
+      <div style={{width: "100%"}} id='emissions-chart'>
         <ReactApexChart
           options={options}
           series={series}
-          type="line"
+          type='line'
           // height={250}
         />
       </div>
@@ -115,4 +115,4 @@ const Scope1Emissions = () => {
   );
 };
 
-export default Scope1Emissions;
+export default WasteConsumption;

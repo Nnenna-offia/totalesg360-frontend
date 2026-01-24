@@ -103,12 +103,12 @@ const Scope2Emissions = () => {
       <Text fontSize={"1rem"} fontWeight={"500"} color={"#606060"}>
         Scope 2 Emissions{" "}
       </Text>
-      <div id="emissions-chart">
+      <div style={{ width: "100%" }} id='emissions-chart'>
         <ReactApexChart
           options={options}
           series={series}
-          type="line"
-          height={250}
+          type='line'
+          // height={250}
         />
       </div>
     </Flex>

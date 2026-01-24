@@ -6,7 +6,7 @@ import Avatar from "../../../assets/avatar.png";
 export default function Topbar() {
   return (
     <Box
-      boxShadow={"md"}
+      boxShadow={"sm"}
       display={"flex"}
       flexDirection={"row"}
       alignItems={"center"}
@@ -18,7 +18,7 @@ export default function Topbar() {
     >
       <Flex
         flex={1}
-        shadow={"md"}
+        shadow={"sm"}
         pl={".75rem"}
         borderRadius={"md"}
         my={".75rem"}

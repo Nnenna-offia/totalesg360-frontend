@@ -9,8 +9,10 @@ import {
   Button,
 } from "@chakra-ui/react";
 import Logo from "../../assets/esglogo_and_tagline.png";
+import { useNavigate } from "react-router-dom";
 
 export default function SIgnUp() {
+  const navigate = useNavigate();
   return (
     <Box display={"flex"}>
       <Box position={"relative"} bg={"#2D94C9"} w={"100vw"}>
@@ -360,6 +362,11 @@ export default function SIgnUp() {
               fontWeight={500}
               w={"fit-content"}
               fontSize={".875rem "}
+              type='submit'
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/signin");
+              }}
             >
               Continue
             </Button>{" "}
@@ -371,7 +378,7 @@ export default function SIgnUp() {
                   fontWeight: "600",
                   borderBottom: "1px solid #12141A",
                 }}
-                href="/sign-in"
+                href="/signin"
               >
                 Sign In{" "}
               </a>{" "}

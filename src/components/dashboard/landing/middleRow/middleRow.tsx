@@ -9,9 +9,22 @@ import MonthlyCompliance from "./monthlyCompliance";
 
 export default function DashboardMiddleRow() {
   return (
-    <Grid templateColumns={"1fr 1fr 1fr"} gap={"4.43rem"}>
+    <Grid
+      // mt={"2rem"}
+      shadow={"sm"}
+      px={"2rem"}
+      py={"1.5rem"}
+      borderRadius={"md"}
+      templateColumns={"1fr 1fr 1fr"}
+      gap={"4.43rem"}
+    >
       <Box>
-        <Text fontSize={"1rem"} mb={'1.5rem'} fontWeight={"700"} color={"#606060"}>
+        <Text
+          fontSize={"1rem"}
+          mb={"1.5rem"}
+          fontWeight={"700"}
+          color={"#606060"}
+        >
           Environmental Summary{" "}
         </Text>
         <ElectricalConsumption />
@@ -20,7 +33,12 @@ export default function DashboardMiddleRow() {
       </Box>
 
       <Box>
-         <Text fontSize={"1rem"} mb={'1.5rem'} fontWeight={"700"} color={"#606060"}>
+        <Text
+          fontSize={"1rem"}
+          mb={"1.5rem"}
+          fontWeight={"700"}
+          color={"#606060"}
+        >
           Social Summary{" "}
         </Text>
         <EmployeeCards />
@@ -28,11 +46,16 @@ export default function DashboardMiddleRow() {
         <HSEIncidents />
       </Box>
 
-       <Box>
-         <Text fontSize={"1rem"} mb={'1.5rem'} fontWeight={"700"} color={"#606060"}>
+      <Box>
+        <Text
+          fontSize={"1rem"}
+          mb={"1.5rem"}
+          fontWeight={"700"}
+          color={"#606060"}
+        >
           Social Summary{" "}
         </Text>
-        <MonthlyCompliance  />
+        <MonthlyCompliance />
       </Box>
     </Grid>
   );

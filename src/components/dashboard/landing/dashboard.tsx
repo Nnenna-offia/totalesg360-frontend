@@ -44,14 +44,24 @@ export default function DashboardLanding() {
     },
   ];
   return (
-    <Stack mb={'2rem'}>
+    <Stack mb={"2rem"}>
       <DashboardTopRow />
       <Box mt={"2.6875rem"}>
         {" "}
         <DashboardMiddleRow />
       </Box>
-      <Box mt={"2.6875rem"}>
-        {" "}<Text mb={'1rem'} color="#454D5A" fontSize={'1rem'} fontWeight={700}>Defined Targets</Text>
+      <Box
+        // my={"2rem"}
+        shadow={"sm"}
+        px={"2rem"}
+        py={"1.5rem"}
+        borderRadius={"md"}
+        mt={"2.6875rem"}
+      >
+        {" "}
+        <Text mb={"1rem"} color='#454D5A' fontSize={"1rem"} fontWeight={700}>
+          Defined Targets
+        </Text>
         <CustomTable data={data} columns={createColumnDef()} />{" "}
       </Box>
     </Stack>

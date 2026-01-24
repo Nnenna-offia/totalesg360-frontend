@@ -6,6 +6,8 @@ const LandingPage = lazy(() => import("./components/webPage/landing"));
 
 const SignUp = lazy(() => import("./components/onboarding/signup"));
 
+const SignIn = lazy(() => import("./components/onboarding/signin"));
+
 const Dashboard = lazy(() => import("./components/dashboard/layout/layout"));
 const DashboardLanding = lazy(
   () => import("./components/dashboard/landing/dashboard")
@@ -22,6 +24,10 @@ export const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
+  },
+  {
+    path: "/signin",
+    element: <SignIn />,
   },
   {
     path: "/dashboard",

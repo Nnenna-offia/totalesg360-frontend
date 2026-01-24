@@ -64,17 +64,17 @@ const CapacityBuilding = () => {
       },
     };
   return (
-    <Flex flexDirection={"column"} mt={'1.5rem'} alignItems={"flex-start"}>
+    <Flex flexDirection={"column"} mt={"1.5rem"} alignItems={"flex-start"}>
       <Text fontSize={"1rem"} fontWeight={"500"} color={"#606060"}>
         Capacity Building Training Held{" "}
       </Text>
-      <div id="electrical-chart">
+      <div style={{ width: "100%" }} id='electrical-chart'>
         <ReactApexChart
           options={options}
           series={series}
-          type="bar"
+          type='bar'
           //   width={300}
-          height={156}
+          // height={156}
         />
       </div>
       {/* <div id="html-dist"></div> */}

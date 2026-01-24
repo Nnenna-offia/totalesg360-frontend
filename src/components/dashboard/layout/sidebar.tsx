@@ -64,7 +64,7 @@ export default function Sidebar() {
     { name: "Workiva", logo: Workiva },
   ];
   return (
-    <Box as="aside" h="100vh" w={"full"} bg={'white'} pt={"4rem"}>
+    <Box as="aside" h="100vh" position={'fixed'} w={"20rem"} bg={'white'} pt={"4rem"}>
       <Image src={Logo} alt="ESG Logo" px={"2rem"} />
 
       <Stack gap={4} py={"1.4375rem"} borderBlockEnd={".6px solid #E0E0E0"}>

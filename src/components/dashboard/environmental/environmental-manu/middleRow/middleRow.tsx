@@ -1,33 +1,50 @@
 import { Box, Grid, Stack, Text } from "@chakra-ui/react";
 import Scope2Emissions from "./emissions";
-import MonthlyCompliance from "./monthlyCompliance";
 import Scope1Emissions from "./scope1emissions";
 import AIInsights from "./AIinsights";
 import AIInsightsEmissions from "./AIinsights-emission";
 import Scope3 from "./scope3breakdown";
 import Scope3Emissions from "./scope3emissions";
 import EnergyConsumption from "./energyConsumption";
+import EnergyIntensity from "./energyIntensity";
+import AIInsightsEnergy from "./AIinsights-energy";
 
 export default function EnvironmentalMiddleRow() {
   return (
-    <Stack my={"1rem"}>
-      <Text fontWeight={600} fontSize={"1.25rem"} px={"2rem"} py={".875rem"}>
+    <Stack>
+      <Text mt={"2rem"} fontWeight={600} fontSize={"1.25rem"} px={"2rem"}>
         The Environmental Dashboard shows how your operations impact the
         environment — tracking emissions, energy, water, waste, and regulatory
         compliance
       </Text>
-      <Grid templateColumns={"1fr 1fr 1fr"} gap={"4.43rem"}>
-        <Box>
-          <Text
-            fontSize={"1rem"}
-            mb={"1.5rem"}
-            fontWeight={"700"}
-            color={"#606060"}
-          >
-            Emissions Overview{" "}
-          </Text>
-          <Scope1Emissions />
-          <Scope2Emissions />
+      <Grid
+        mt={"2rem"}
+        shadow={"sm"}
+        px={"2rem"}
+        py={"1.5rem"}
+        borderRadius={"md"}
+        templateColumns={"1fr 1fr 1fr"}
+        gap={"1rem"}
+      >
+        <Box
+          display={"flex"}
+          // bg={"red"}
+          justifyContent={"space-between"}
+          flexDirection={"column"}
+        >
+          <Box>
+            {" "}
+            <Text
+              fontSize={"1rem"}
+              mb={"1.5rem"}
+              fontWeight={"700"}
+              color={"#606060"}
+            >
+              Emissions Overview{" "}
+            </Text>
+            <Scope1Emissions />
+            <Scope2Emissions />
+          </Box>
           <AIInsights />
         </Box>
 
@@ -44,17 +61,26 @@ export default function EnvironmentalMiddleRow() {
           <AIInsightsEmissions />
         </Box>
 
-        <Box>
-          <Text
-            fontSize={"1rem"}
-            mb={"1.5rem"}
-            fontWeight={"700"}
-            color={"#606060"}
-          >
-            Energy Consumption{" "}
-          </Text>
-          <EnergyConsumption/>
-          <MonthlyCompliance />
+        <Box
+          display={"flex"}
+          // bg={"red"}
+          justifyContent={"space-between"}
+          flexDirection={"column"}
+        >
+          <Box gap={".5rem"}>
+            {" "}
+            <Text
+              fontSize={"1rem"}
+              mb={"1.5rem"}
+              fontWeight={"700"}
+              color={"#606060"}
+            >
+              Energy Consumption{" "}
+            </Text>
+            <EnergyConsumption />
+            <EnergyIntensity />
+          </Box>
+          <AIInsightsEnergy />
         </Box>
       </Grid>
     </Stack>

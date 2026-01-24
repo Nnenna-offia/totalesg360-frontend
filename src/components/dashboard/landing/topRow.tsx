@@ -47,7 +47,7 @@ export default function DashboardTopRow() {
         <Flex
           key={item.label}
           flex={1}
-          boxShadow={"md"}
+          boxShadow={"sm"}
           bg={"white"}
           borderRadius={"md"}
           p={"1.5rem"}

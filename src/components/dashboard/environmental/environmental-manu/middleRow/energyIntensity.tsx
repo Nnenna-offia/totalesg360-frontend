@@ -3,7 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import type { ApexOptions } from "apexcharts";
 import { Flex, Text } from "@chakra-ui/react";
 
-const ElectricalConsumption = () => {
+const EnergyIntensity = () => {
   const series= [
       {
         data: [40000, 22000, 10000, 28000, 16000, 21000],
@@ -66,16 +66,16 @@ const ElectricalConsumption = () => {
     };
 
   return (
-    <Flex flexDirection={"column"} alignItems={'flex-start'}>
-        <Text fontSize={"1rem"} fontWeight={"500"} color={"#606060"}>
-        Electrical Consumption (kWh)
+    <Flex flexDirection={"column"} alignItems={"flex-start"}>
+      <Text fontSize={"1rem"} fontWeight={"500"} color={"#606060"}>
+        Energy Intensity (kWh per unit produced){" "}
       </Text>
-      <div style={{width:"100%"}} id="electrical-chart">
+      <div style={{ width: "100%" }} id='electrical-chart'>
         <ReactApexChart
           options={options}
           series={series}
-          type="bar"
-        //   width={300}
+          type='bar'
+          //   width={300}
           // height={156}
         />
       </div>
@@ -84,4 +84,4 @@ const ElectricalConsumption = () => {
   );
 };
 
-export default ElectricalConsumption;
+export default EnergyIntensity;

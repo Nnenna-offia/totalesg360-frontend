@@ -8,13 +8,15 @@ import {
   Icon,
   // //CloseButton,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Tag from "../../assets/TotalESG 360.png";
 import {  MenuIcon } from "lucide-react";
 // import { menuAnatomy } from "@chakra-ui/react/anatomy";
 import { IoClose } from "react-icons/io5";
 
 export default function Nav() {
+const navigate = useNavigate();
+
   const links = [
     { label: "Home", path: "/" },
     { label: "Product", path: "#product" },
@@ -114,7 +116,7 @@ export default function Nav() {
             position={"absolute"}
             top={".5rem"}
             // right={0}
-            right={["-.5rem", "-1.5rem", "7.8125rem"]}
+            right={["-.5rem"]}
             gap="1.5rem"
             bg={"white"}
             px={"3rem"}
@@ -129,7 +131,10 @@ export default function Nav() {
                 className="nav-link"
                 key={link.label}
                 href={link.path}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false)
+                  // navigate
+                 }}
               >
                 {link.label}
               </ChakraLink>
@@ -143,7 +148,10 @@ export default function Nav() {
               bg="#2C92D5"
               color="white"
               w="full"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false) 
+                navigate("/signup")
+              }}
             >
               Sign Up
             </Button>

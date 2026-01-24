@@ -44,7 +44,7 @@ export default function EnvironmentalTopRow() {
       <Box
         p={"1.375rem"}
         bg={"white"}
-        boxShadow={"md"}
+        boxShadow={"sm"}
         borderRadius={"md"}
         flex={1}
       >
@@ -86,7 +86,7 @@ export default function EnvironmentalTopRow() {
         </Flex>
       </Box>
       <Flex
-        boxShadow={"md"}
+        boxShadow={"sm"}
         bg={"white"}
         gap={"2rem"}
         borderRadius={"md"}
