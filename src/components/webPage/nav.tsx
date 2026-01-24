@@ -79,7 +79,7 @@ const navigate = useNavigate();
           display={{ base: "none", lg: "flex" }}
         >
           <Link
-            to="/"
+            to="/signin"
             className="nav-link"
             style={{ color: "#A6A6A6", fontWeight: 600 }}
           >
@@ -93,6 +93,7 @@ const navigate = useNavigate();
             py="0.5rem"
             fontWeight="600"
             _hover={{ bg: "#1f76b8" }}
+            onClick={() => navigate("/signup")}
           >
             Sign Up
           </Button>
