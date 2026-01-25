@@ -1,47 +1,33 @@
-import {
-  Button,
-  Flex,
-  Icon,
-  Input,
-  Stack,
-  Text,
-  Box,
-} from "@chakra-ui/react";
-import Manufacturing from "../../../../assets/environmental-manufaturing/Manufacturing.svg?react";
+import { Button, Flex, Icon, Input, Stack, Text, Box } from "@chakra-ui/react";
+// import Manufacturing from "../../../assets/environmental-manufaturing/Manufacturing.svg?react";
 import { BiExport } from "react-icons/bi";
-import Management from "../../../../assets/governance-manu/Management.svg?react";
-import UpTrend from "../../../../assets/dashboard/up-trend.svg?react";
-import DownTrend from "../../../../assets/dashboard/down-trend.svg?react";
-import Document from "../../../../assets/governance-manu/Document.svg?react";
-import Compliance from "../../../../assets/governance-manu/Inspection.svg?react";
+// import Lightening from "../../../assets/environmental-manufaturing/Lightning Bolt.svg?react";
+import UpTrend from "../../assets/dashboard/up-trend.svg?react";
+import DownTrend from "../../assets/dashboard/down-trend.svg?react";
+// import Cloud from "../../../assets/environmental-manufaturing/CO2.svg?react";
+// import Water from "../../../assets/environmental-manufaturing/Water.svg?react";
+import type { ElementType } from "react";
 
-export default function EnvironmentalTopRow() {
-  const data = [
-    {
-      label: "Total Energy Consumed",
-      icon: Management,
-      value: "4",
-      bg: "#DAF7C7",
-      // unit: "kWh",
-      delta: "positive",
-    },
-    {
-      label: "Total Emissions",
-      icon: Document,
-      value: "16",
-      bg: "#BBDEE8",
-      // unit: "tCO₂e",
-      delta: "negative",
-    },
-    {
-      label: "Total Water Usage",
-      icon: Compliance,
-      value: "67%",
-      bg: "#C8EAFF",
-      // unit: "m³",
-      delta: "positive",
-    },
-  ];
+type DeltaType = "positive" | "negative";
+
+export interface TopRowMetric {
+  label: string;
+  icon: ElementType;
+  value: string | number;
+  unit?: string; // ✅ optional
+  delta: DeltaType;
+  bg: string;
+}
+
+export default function TopRow({
+  data,
+  title,
+  icon,
+}: {
+  data: TopRowMetric[];
+  title: string;
+  icon: ElementType;
+}) {
   return (
     <Flex alignItems={"center"} gap={"2rem"}>
       <Box
@@ -52,15 +38,15 @@ export default function EnvironmentalTopRow() {
         flex={1}
       >
         <Flex alignItems={"center"} gap={".625rem"}>
-          <Box bg={"#C9EAFF"} p="1rem" borderRadius={"1rem"}>
-            <Icon as={Manufacturing} />
+          <Box bg={"#C9EAFF"} p='1rem' borderRadius={"1rem"}>
+            <Icon as={icon} />
           </Box>{" "}
           <Flex flexDirection={"column"} gap={0}>
             <Text fontSize={".875rem"} fontWeight={"500"} color={"#606060"}>
               Sector:{" "}
             </Text>
             <Text fontSize={"1.75rem"} fontWeight={"700"} color={"#202224"}>
-              Manufacturing{" "}
+              {title}{" "}
             </Text>
           </Flex>
         </Flex>
@@ -75,7 +61,7 @@ export default function EnvironmentalTopRow() {
         </Text>
         <Flex gap={".375rem"}>
           <Input
-            placeholder="January 2025 - June 2025"
+            placeholder='January 2025 - June 2025'
             border={"1px solid #2A2F3B"}
           />
           <Button
@@ -111,7 +97,7 @@ export default function EnvironmentalTopRow() {
               // justifyContent={"space-between"}
               gap={".75rem"}
             >
-              <Box bg={item.bg} p="1rem" borderRadius={"1rem"}>
+              <Box bg={item.bg} p='1rem' borderRadius={"1rem"}>
                 <Icon as={item.icon} />
               </Box>
 
@@ -119,9 +105,11 @@ export default function EnvironmentalTopRow() {
                 <Text fontSize={"1.25rem"} fontWeight={"800"} color={"#333333"}>
                   {item.value}
                 </Text>
-                {/* <Text fontSize={"1rem"} fontWeight={"800"} color={"#333333"}>
-                  ({item.unit})
-                </Text> */}
+                {item.unit && (
+                  <Text fontSize={"1rem"} fontWeight={"800"} color={"#333333"}>
+                    ({item.unit})
+                  </Text>
+                )}
               </Stack>
               {/* <Image src={item.icon} alt={item.label} /> */}
             </Flex>

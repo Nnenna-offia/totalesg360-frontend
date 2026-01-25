@@ -5,7 +5,7 @@ import Topbar from "./topbar";
 
 export default function Layout() {
   return (
-    <Flex flexDirection={"row"} w="100vw">
+    <Flex flexDirection={"row"} w="100vw" bg={'red'} minH={'100dvh'}>
       {/* Fixed side */}
       <Flex boxShadow={"xl"}   w={"16%"} zIndex={10}>
         {" "}

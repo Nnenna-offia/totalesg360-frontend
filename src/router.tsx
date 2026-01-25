@@ -16,6 +16,13 @@ const EnvironmentalDashboard = lazy(
   () => import("./components/dashboard/environmental/environmental-manu/environmental")
 );
 
+const Governance = lazy(
+  () => import("./components/dashboard/governance/governance")
+);
+
+const SocialManufacturing = lazy(
+  () => import("./components/dashboard/social-manu/social-manu")
+);
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +47,14 @@ export const router = createBrowserRouter([
       {
         path: "environmental",
         element: <EnvironmentalDashboard />,
+      },
+      {
+        path: "governance",
+        element: <Governance />,
+      },
+      {
+        path: "social",
+        element: <SocialManufacturing />,
       },
     ],
   },
