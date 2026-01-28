@@ -33,6 +33,7 @@ const InternalAudit = () => {
       //   background: 'red'
     },
     tooltip: { enabled: false },
+    colors: ["#2C92D5"],
     dataLabels: { enabled: false },
 
     stroke: {
@@ -40,7 +41,7 @@ const InternalAudit = () => {
       width: [1, 0], // line visible, bar has no stroke
     },
 
-    colors: ["#2C92D5"], // line, bar
+     // line, bar
 
     plotOptions: {
       bar: {
